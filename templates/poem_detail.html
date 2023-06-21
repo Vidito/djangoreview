@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="jumbotron text-center bg-secondary text-white hero">
+    <h1 class="display-5">Review of {{ poem.title }} </h1>
+    <p class="lead">By {{ poem.author }}</p>
+  </div>
+<p>{{ poem.text | linebreaks }}</p>
+
+
+
+{% endblock content %}

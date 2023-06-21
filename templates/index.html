@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+      <div class="jumbotron text-center text-white hero">
+        <h1 class="display-5">Welcome to Poem Reviews!</h1>
+        <p class="lead">Here, I post weekly reviews of poems.</p>
+      </div>
+      
+      <div class="container">
+        <div class="row">
+            {% for poem in poems %}
+          <div class="col m-1">
+            <div class="card border-0"  style="width: 20rem;">
+              <div class="card-body myCard">
+                <h5 class="card-title">{{ poem.title }}</h5>
+                {% if poem.image %}
+                  <img src="{{poem.image.url}}" alt="poem.image">
+                {% endif %}
+                <br>
+                <br>
+                <h6 class=" card-subtitle mb-2 text-muted">{{ poem.author }}</h6>
+                <small>{{ poem.post_date }}</small>
+                <p class="card-text">{{ poem.excerpt }}</p>
+                <a href="{{ poem.get_absolute_url }}" class="card-link">Read More</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+{% endblock content %}
