@@ -105,7 +105,7 @@ WSGI_APPLICATION = 'poemsproject.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default='postgres://bearabookdb_user:3ZXPBAkzNUSwzmbdaUilmw7DSUWXRGJF@dpg-ci8l9a18g3nfuc9bvln0-a.oregon-postgres.render.com/bearabookdb',
+        default=env("DATABASE_URL"),
         conn_max_age=600
     )
 }
